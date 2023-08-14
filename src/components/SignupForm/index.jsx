@@ -1,66 +1,39 @@
 import { useState } from "react";
+import { useForm } from "react-hook-form";
 
 const SignUpForm = () => {
-  const [name, setName] = useState("");
-  const [age, setAge] = useState("");
-  const [address, setAddress] = useState("");
-  const [zipcode, setZipcode] = useState("");
-  const [phone, setPhone] = useState("");
+  const { register, handleSubmit } = useForm();
 
-  const handleClearClick = () => {
-    console.log("clear");
-    setName("");
-    setAge("");
-    setAddress("");
-    setZipcode("");
-    setPhone("");
-  };
-  const handleSubmitForm = (e) => {
-    e.preventDefault();
-    console.log("submit: ", { name, age, address, zipcode, phone });
+  const handleClearClick = () => {};
+  const handleSubmitForm = (data) => {
+    console.log(data);
   };
 
   return (
-    <form onSubmit={handleSubmitForm}>
+    <form onSubmit={handleSubmit(handleSubmitForm)}>
       <label>
         Name
-        <input
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          required
-        />
+        <input {...register("name")} required />
       </label>
       <br />
       <label>
         Age
-        <input value={age} onChange={(e) => setAge(e.target.value)} required />
+        <input {...register("age")} required />
       </label>
       <br />
       <label>
         Address
-        <input
-          value={address}
-          onChange={(e) => setAddress(e.target.value)}
-          required
-        />
+        <input {...register("address")} required />
       </label>
       <br />
       <label>
         Zipcode
-        <input
-          value={zipcode}
-          onChange={(e) => setZipcode(e.target.value)}
-          required
-        />
+        <input {...register("zipcode")} required />
       </label>
       <br />
       <label>
         Phone
-        <input
-          value={phone}
-          onChange={(e) => setPhone(e.target.value)}
-          required
-        />
+        <input {...register("phone")} required />
       </label>
       <br />
       <button type="button" onClick={handleClearClick}>
