@@ -6,7 +6,6 @@ const Navbar = ({ onSearch }) => {
     setSearch(e.target.value);
   };
   const handleInputKeyDown = (e) => {
-    console.log(e);
     if (e.key === "Enter") {
       onSearch(search);
     }
