@@ -1,15 +1,11 @@
 // https://app.ticketmaster.com/discovery/v2/events.json?apikey=BAw92mYJ3jAqnBzvrxmetmZqSc1Rt1OB
-
 import EventItem from "./components/EventItem";
-import eventsJSON from "../../data/events.json";
-import { useState } from "react";
+import useEventsData from "../../hooks/useEventsData";
 // const eventos = eventsJSON._embedded.events;
 
 const Events = ({ searchTerm }) => {
-  const [data] = useState(eventsJSON);
-  const {
-    _embedded: { events },
-  } = data;
+  const { events } = useEventsData();
+
   const handleEventItemClick = (id) => {
     console.log("I was clicked: ", id);
   };

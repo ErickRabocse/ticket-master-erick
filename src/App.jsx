@@ -1,7 +1,6 @@
 import "./App.css";
 import Navbar from "./components/Navbar";
 import Events from "./components/Events";
-import SignUpForm from "./components/SignupForm";
 import { useState } from "react";
 
 function App() {
@@ -12,9 +11,8 @@ function App() {
   console.log(searchTerm, 10);
   return (
     <>
-      {/* <Navbar onSearch={handleNavSearch} />
-      <Events searchTerm={searchTerm} /> */}
-      <SignUpForm />
+      <Navbar onSearch={handleNavSearch} />
+      <Events searchTerm={searchTerm} />
     </>
   );
 }

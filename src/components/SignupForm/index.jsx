@@ -1,10 +1,16 @@
-import { useState } from "react";
 import { useForm } from "react-hook-form";
 
 const SignUpForm = () => {
-  const { register, handleSubmit } = useForm();
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm();
 
-  const handleClearClick = () => {};
+  const handleClearClick = () => {
+    reset();
+  };
   const handleSubmitForm = (data) => {
     console.log(data);
   };
@@ -13,27 +19,27 @@ const SignUpForm = () => {
     <form onSubmit={handleSubmit(handleSubmitForm)}>
       <label>
         Name
-        <input {...register("name")} required />
+        <input {...register("name", { required: true })} />
       </label>
       <br />
       <label>
         Age
-        <input {...register("age")} required />
+        <input {...register("age", { required: true })} />
       </label>
       <br />
       <label>
         Address
-        <input {...register("address")} required />
+        <input {...register("address", { required: true })} />
       </label>
       <br />
       <label>
         Zipcode
-        <input {...register("zipcode")} required />
+        <input {...register("zipcode", { required: true })} />
       </label>
       <br />
       <label>
         Phone
-        <input {...register("phone")} required />
+        <input {...register("phone", { required: true })} />
       </label>
       <br />
       <button type="button" onClick={handleClearClick}>
